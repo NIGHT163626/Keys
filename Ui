@@ -1,80 +1,128 @@
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TituloLabel = Instance.new("TextLabel")
-local NotificacaoLabel = Instance.new("TextLabel")
-local TextBox = Instance.new("TextBox")
-local BotaoVerificar = Instance.new("TextButton")
-local StatusLabel = Instance.new("TextLabel")
-local BotaoPegarChave = Instance.new("TextButton")
+local HubLibrary = {}
+HubLibrary.ScreenGui = Instance.new("ScreenGui")
+HubLibrary.Frame = Instance.new("Frame")
+HubLibrary.NotificacaoLabel = Instance.new("TextLabel")
+HubLibrary.TituloLabel = Instance.new("TextLabel")
+HubLibrary.StatusLabel = Instance.new("TextLabel")
+HubLibrary.TextBox = Instance.new("TextBox")
 
--- Adicionar GUI ao CoreGui
-ScreenGui.Parent = game.CoreGui
-ScreenGui.ResetOnSpawn = false
+-- Armazenar chaves válidas
+HubLibrary.ValidKeys = {
+    ["sua_chave_1"] = true,
+    ["sua_chave_2"] = true,
+}
 
--- Configurar Frame
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-Frame.Size = UDim2.new(0, 400, 0, 400)
-Frame.Position = UDim2.new(0.5, -200, 0.5, -200)
+-- Inicializar a GUI
+function HubLibrary:Initialize()
+    self.ScreenGui.Parent = game.CoreGui
+    self.ScreenGui.ResetOnSpawn = false
 
--- Configurar NotificacaoLabel
-NotificacaoLabel.Parent = Frame
-NotificacaoLabel.BackgroundTransparency = 1
-NotificacaoLabel.Size = UDim2.new(0, 380, 0, 30)
-NotificacaoLabel.Position = UDim2.new(0.5, -190, 0, 10)
-NotificacaoLabel.Font = Enum.Font.GothamBold
-NotificacaoLabel.Text = "Bem-vindo, " .. game.Players.LocalPlayer.Name .. "!"
-NotificacaoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-NotificacaoLabel.TextSize = 20
+    -- Configurar Frame
+    self.Frame.Parent = self.ScreenGui
+    self.Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    self.Frame.Size = UDim2.new(0, 400, 0, 400)
+    self.Frame.Position = UDim2.new(0.5, -200, 0.5, -200)
 
--- Configurar TituloLabel
-TituloLabel.Parent = Frame
-TituloLabel.BackgroundTransparency = 1
-TituloLabel.Size = UDim2.new(0, 380, 0, 40)
-TituloLabel.Position = UDim2.new(0.5, -190, 0, 50)
-TituloLabel.Font = Enum.Font.Gotham
-TituloLabel.Text = "Hub Key System"
-TituloLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TituloLabel.TextSize = 24
+    -- Configurar NotificacaoLabel
+    self.NotificacaoLabel.Parent = self.Frame
+    self.NotificacaoLabel.BackgroundTransparency = 1
+    self.NotificacaoLabel.Size = UDim2.new(0, 380, 0, 30)
+    self.NotificacaoLabel.Position = UDim2.new(0.5, -190, 0, 10)
+    self.NotificacaoLabel.Font = Enum.Font.GothamBold
+    self.NotificacaoLabel.Text = "Bem-vindo, " .. game.Players.LocalPlayer.Name .. "!"
+    self.NotificacaoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    self.NotificacaoLabel.TextSize = 20
 
--- Configurar TextBox
-TextBox.Parent = Frame
-TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-TextBox.Size = UDim2.new(0, 380, 0, 50)
-TextBox.Position = UDim2.new(0.5, -190, 0, 100)
-TextBox.Font = Enum.Font.Gotham
-TextBox.PlaceholderText = "Insira a Chave Aqui"
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextSize = 14
+    -- Configurar TituloLabel
+    self.TituloLabel.Parent = self.Frame
+    self.TituloLabel.BackgroundTransparency = 1
+    self.TituloLabel.Size = UDim2.new(0, 380, 0, 40)
+    self.TituloLabel.Position = UDim2.new(0.5, -190, 0, 50)
+    self.TituloLabel.Font = Enum.Font.Gotham
+    self.TituloLabel.Text = "Hub Key System"
+    self.TituloLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    self.TituloLabel.TextSize = 24
 
--- Configurar BotaoVerificar
-BotaoVerificar.Parent = Frame
-BotaoVerificar.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-BotaoVerificar.Size = UDim2.new(0, 380, 0, 50)
-BotaoVerificar.Position = UDim2.new(0.5, -190, 0, 160)
-BotaoVerificar.Font = Enum.Font.Gotham
-BotaoVerificar.Text = "Verificar Chave"
-BotaoVerificar.TextColor3 = Color3.fromRGB(255, 255, 255)
-BotaoVerificar.TextSize = 14
+    -- Configurar TextBox
+    self.TextBox.Parent = self.Frame
+    self.TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    self.TextBox.Size = UDim2.new(0, 380, 0, 50)
+    self.TextBox.Position = UDim2.new(0.5, -190, 0, 100)
+    self.TextBox.Font = Enum.Font.Gotham
+    self.TextBox.PlaceholderText = "Insira a Chave Aqui" -- Pode ser personalizado depois
+    self.TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    self.TextBox.TextSize = 14
 
--- Configurar BotaoPegarChave
-BotaoPegarChave.Parent = Frame
-BotaoPegarChave.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-BotaoPegarChave.Size = UDim2.new(0, 380, 0, 50)
-BotaoPegarChave.Position = UDim2.new(0.5, -190, 0, 220)
-BotaoPegarChave.Font = Enum.Font.Gotham
-BotaoPegarChave.Text = "Pegar Chave"
-BotaoPegarChave.TextColor3 = Color3.fromRGB(255, 255, 255)
-BotaoPegarChave.TextSize = 14
+    -- Configurar StatusLabel
+    self.StatusLabel.Parent = self.Frame
+    self.StatusLabel.BackgroundTransparency = 1
+    self.StatusLabel.Size = UDim2.new(0, 380, 0, 100)
+    self.StatusLabel.Position = UDim2.new(0.5, -190, 0.9, -40)
+    self.StatusLabel.Font = Enum.Font.Gotham
+    self.StatusLabel.Text = ""
+    self.StatusLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    self.StatusLabel.TextSize = 24
+end
 
--- Configurar StatusLabel
-StatusLabel.Parent = Frame
-StatusLabel.BackgroundTransparency = 1
-StatusLabel.Size = UDim2.new(0, 380, 0, 100)
-StatusLabel.Position = UDim2.new(0.5, -190, 0.9, -40)
-StatusLabel.Font = Enum.Font.Gotham
-StatusLabel.Text = ""
-StatusLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-StatusLabel.TextSize = 24
+-- Função para personalizar o texto do placeholder
+function HubLibrary:SetPlaceholderText(text)
+    self.TextBox.PlaceholderText = text
+end
 
--- Restante do código permanece o mesmo
+-- Função para criar ou editar um botão
+function HubLibrary:AddButton(text, callback, position, size, color)
+    local Botao = Instance.new("TextButton")
+    Botao.Parent = self.Frame
+    Botao.BackgroundColor3 = color or Color3.fromRGB(60, 60, 60)
+    Botao.Size = size or UDim2.new(0, 380, 0, 50)
+    Botao.Position = position or UDim2.new(0.5, -190, 0, 160 + (#self.Frame:GetChildren() - 5) * 60)
+    Botao.Font = Enum.Font.Gotham
+    Botao.Text = text
+    Botao.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Botao.TextSize = 14
+
+    Botao.MouseButton1Click:Connect(callback)
+
+    -- Efeito de hover
+    Botao.MouseEnter:Connect(function()
+        Botao.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+    end)
+
+    Botao.MouseLeave:Connect(function()
+        Botao.BackgroundColor3 = color or Color3.fromRGB(60, 60, 60)
+    end)
+
+    return Botao -- Retornar o botão para possíveis edições futuras
+end
+
+-- Função para verificar a chave
+function HubLibrary:CheckKey()
+    local chave = self.TextBox.Text
+    if self.ValidKeys[chave] then
+        self:SetStatus("Chave Válida! Acesso concedido.")
+    else
+        self:SetStatus("Chave Inválida! Tente novamente.")
+    end
+end
+
+-- Função para definir o status da StatusLabel
+function HubLibrary:SetStatus(mensagem)
+    self.StatusLabel.Text = mensagem
+end
+
+-- Inicializar a GUI
+HubLibrary:Initialize()
+
+-- Exemplo de personalização do placeholder
+HubLibrary:SetPlaceholderText("Insira sua chave personalizada aqui")
+
+-- Adicionar botões de funcionalidade
+HubLibrary:AddButton("Verificar Chave", function()
+    HubLibrary:CheckKey()
+end)
+
+HubLibrary:AddButton("Pegar Chave", function()
+    HubLibrary:SetStatus("Chave adquirida!")
+end)
+
+return HubLibrary
