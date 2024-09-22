@@ -1,0 +1,52 @@
+-- UI Library
+local UILib = {}
+
+function UILib.CreateFrame(parent, size, position, color)
+    local Frame = Instance.new("Frame")
+    Frame.Parent = parent
+    Frame.Size = size
+    Frame.Position = position
+    Frame.BackgroundColor3 = color
+    return Frame
+end
+
+function UILib.CreateTextBox(parent, size, position, placeholder)
+    local TextBox = Instance.new("TextBox")
+    TextBox.Parent = parent
+    TextBox.Size = size
+    TextBox.Position = position
+    TextBox.PlaceholderText = placeholder
+    TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextBox.Font = Enum.Font.Gotham
+    TextBox.TextSize = 14
+    return TextBox
+end
+
+function UILib.CreateTextButton(parent, size, position, text)
+    local Button = Instance.new("TextButton")
+    Button.Parent = parent
+    Button.Size = size
+    Button.Position = position
+    Button.Text = text
+    Button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Button.Font = Enum.Font.Gotham
+    Button.TextSize = 14
+    return Button
+end
+
+function UILib.CreateTextLabel(parent, size, position, text)
+    local Label = Instance.new("TextLabel")
+    Label.Parent = parent
+    Label.Size = size
+    Label.Position = position
+    Label.Text = text
+    Label.BackgroundTransparency = 1
+    Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Label.Font = Enum.Font.Gotham
+    Label.TextSize = 14
+    return Label
+end
+
+return UILib
