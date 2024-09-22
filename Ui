@@ -1,13 +1,11 @@
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local Title = Instance.new("TextLabel")
-local Notification = Instance.new("TextLabel")
+local TituloLabel = Instance.new("TextLabel")
+local NotificacaoLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
-local VerifyButton = Instance.new("TextButton")
-local GetKeyButton = Instance.new("TextButton")
+local BotaoVerificar = Instance.new("TextButton")
 local StatusLabel = Instance.new("TextLabel")
-local Shadow = Instance.new("ImageLabel")
+local BotaoPegarChave = Instance.new("TextButton")
 
 -- Adicionar GUI ao CoreGui
 ScreenGui.Parent = game.CoreGui
@@ -19,41 +17,25 @@ Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 Frame.Size = UDim2.new(0, 400, 0, 400)
 Frame.Position = UDim2.new(0.5, -200, 0.5, -200)
 
--- Adicionar canto arredondado ao Frame
-UICorner.Parent = Frame
-UICorner.CornerRadius = UDim.new(0.05, 0)
+-- Configurar NotificacaoLabel
+NotificacaoLabel.Parent = Frame
+NotificacaoLabel.BackgroundTransparency = 1
+NotificacaoLabel.Size = UDim2.new(0, 380, 0, 30)
+NotificacaoLabel.Position = UDim2.new(0.5, -190, 0, 10)
+NotificacaoLabel.Font = Enum.Font.GothamBold
+NotificacaoLabel.Text = "Bem-vindo, " .. game.Players.LocalPlayer.Name .. "!"
+NotificacaoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+NotificacaoLabel.TextSize = 20
 
--- Configurar Sombra
-Shadow.Parent = Frame
-Shadow.BackgroundTransparency = 1
-Shadow.Size = UDim2.new(1, 18, 1, 18)
-Shadow.Position = UDim2.new(0.5, -9, 0.5, -9)
-Shadow.Image = "rbxassetid://1316045217"
-Shadow.ImageTransparency = 0.5
-Shadow.ScaleType = Enum.ScaleType.Slice
-Shadow.SliceCenter = Rect.new(10, 10, 118, 118)
-
--- Configurar Título
-Title.Parent = Frame
-Title.BackgroundTransparency = 1
-Title.Size = UDim2.new(0, 380, 0, 40)
-Title.Position = UDim2.new(0.5, -190, 0, 10)
-Title.Font = Enum.Font.GothamBold
-Title.Text = "Hub Key System"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextSize = 24
-Title.TextStrokeTransparency = 0.5
-
--- Configurar Notificação
-Notification.Parent = Frame
-Notification.BackgroundTransparency = 1
-Notification.Size = UDim2.new(0, 380, 0, 30)
-Notification.Position = UDim2.new(0.5, -190, 0, 60)
-Notification.Font = Enum.Font.GothamBold
-Notification.Text = "Bem-vindo, " .. game.Players.LocalPlayer.Name .. "!"
-Notification.TextColor3 = Color3.fromRGB(255, 255, 255)
-Notification.TextSize = 20
-Notification.TextStrokeTransparency = 0.5
+-- Configurar TituloLabel
+TituloLabel.Parent = Frame
+TituloLabel.BackgroundTransparency = 1
+TituloLabel.Size = UDim2.new(0, 380, 0, 40)
+TituloLabel.Position = UDim2.new(0.5, -190, 0, 50)
+TituloLabel.Font = Enum.Font.Gotham
+TituloLabel.Text = "Hub Key System"
+TituloLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TituloLabel.TextSize = 24
 
 -- Configurar TextBox
 TextBox.Parent = Frame
@@ -62,31 +44,30 @@ TextBox.Size = UDim2.new(0, 380, 0, 50)
 TextBox.Position = UDim2.new(0.5, -190, 0, 100)
 TextBox.Font = Enum.Font.Gotham
 TextBox.PlaceholderText = "Insira a Chave Aqui"
-TextBox.Text = ""
 TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.TextSize = 14
 
--- Configurar Botão de Verificação
-VerifyButton.Parent = Frame
-VerifyButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-VerifyButton.Size = UDim2.new(0, 380, 0, 50)
-VerifyButton.Position = UDim2.new(0.5, -190, 0, 160)
-VerifyButton.Font = Enum.Font.Gotham
-VerifyButton.Text = "Verificar Chave"
-VerifyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-VerifyButton.TextSize = 14
+-- Configurar BotaoVerificar
+BotaoVerificar.Parent = Frame
+BotaoVerificar.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+BotaoVerificar.Size = UDim2.new(0, 380, 0, 50)
+BotaoVerificar.Position = UDim2.new(0.5, -190, 0, 160)
+BotaoVerificar.Font = Enum.Font.Gotham
+BotaoVerificar.Text = "Verificar Chave"
+BotaoVerificar.TextColor3 = Color3.fromRGB(255, 255, 255)
+BotaoVerificar.TextSize = 14
 
--- Configurar Botão de Pegar Chave
-GetKeyButton.Parent = Frame
-GetKeyButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-GetKeyButton.Size = UDim2.new(0, 380, 0, 50)
-GetKeyButton.Position = UDim2.new(0.5, -190, 0, 220)
-GetKeyButton.Font = Enum.Font.Gotham
-GetKeyButton.Text = "Pegar Chave"
-GetKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-GetKeyButton.TextSize = 14
+-- Configurar BotaoPegarChave
+BotaoPegarChave.Parent = Frame
+BotaoPegarChave.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+BotaoPegarChave.Size = UDim2.new(0, 380, 0, 50)
+BotaoPegarChave.Position = UDim2.new(0.5, -190, 0, 220)
+BotaoPegarChave.Font = Enum.Font.Gotham
+BotaoPegarChave.Text = "Pegar Chave"
+BotaoPegarChave.TextColor3 = Color3.fromRGB(255, 255, 255)
+BotaoPegarChave.TextSize = 14
 
--- Configurar Label de Status
+-- Configurar StatusLabel
 StatusLabel.Parent = Frame
 StatusLabel.BackgroundTransparency = 1
 StatusLabel.Size = UDim2.new(0, 380, 0, 100)
@@ -95,3 +76,5 @@ StatusLabel.Font = Enum.Font.Gotham
 StatusLabel.Text = ""
 StatusLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 StatusLabel.TextSize = 24
+
+-- Restante do código permanece o mesmo
