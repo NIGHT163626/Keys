@@ -192,15 +192,7 @@ function MakeWindow(Configs)
   local title = Configs.Hub.Title or "REDz HUB"
   local Anim_Title = Configs.Hub.Animation or "by : redz9999"
   
-  local KeySystem = Configs.Key.KeySystem or false
-  local KeyTitle = Configs.Key.Title or "Hub Key System"
-  local KeyDescription = Configs.Key.Description or "Leaks/Scripts Hub"
-  local KeyKey = Configs.Key.Keys or {"123", "321"}
-  local KeyLink = Configs.Key.KeyLink or ""
-  local KeyNotifications = Configs.Key.Notifi.Notifications or true
-  local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or "Key Correta!"
-  local KeySuccess = Configs.Key.Notifi.CorrectKey or "Excutando o Script..."
-  local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Link Copiado Automaticamente."
+  
   
   if KeySystem then
     local KeyMenu = Create("Frame", ScreenGui, {
@@ -218,7 +210,22 @@ function MakeWindow(Configs)
       AnchorPoint = Vector2.new(1, 0),
       Text = "X",
       Font = Enum.Font.FredokaOne,
-      TextScaled = true,
+      TextScallocal KeySystem = Configs.Key.KeySystem or false
+local KeyTitle = Configs.Key.Title or "Hub Key System"
+local KeyDescription = Configs.Key.Description or "Leaks/Scripts Hub"
+local KeyKey = Configs.Key.Keys or {"123", "321"}
+local KeyLink = Configs.Key.KeyLink or ""
+local KeyNotifications = Configs.Key.Notifi.Notifications or true
+local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or "A key está incorreta. Tente novamente."
+local KeySuccess = Configs.Key.Notifi.CorrectKey or {
+    Title = "Key Correta!",  -- Título da notificação de sucesso
+    Text = "Você colocou a key certa",  -- Texto da notificação de sucesso
+    Time = 5  -- Duração da notificação
+}
+local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Link Copiado Automaticamente."
+
+-- Exemplo de uso:
+MakeNotifi(KeySuccess)ed = true,
       TextColor3 = Color3.fromRGB(240, 0, 0),
       BackgroundTransparency = 1,
     })Corner(CloseButton)
