@@ -204,26 +204,7 @@ function MakeWindow(Configs)
       Draggable = true
     })Corner(KeyMenu)
     
-    local CloseButton = Create("TextButton", KeyMenu, {
-      Size = UDim2.new(0, 30, 0, 30),
-      Position = UDim2.new(1, -10, 0, 5),
-      AnchorPoint = Vector2.new(1, 0),
-      Text = "X",
-      Font = Enum.Font.FredokaOne,
-      TextScallocal KeySystem = Configs.Key.KeySystem or false
-local KeyTitle = Configs.Key.Title or "Hub Key System"
-local KeyDescription = Configs.Key.Description or "Leaks/Scripts Hub"
-local KeyKey = Configs.Key.Keys or {"123", "321"}
-local KeyLink = Configs.Key.KeyLink or ""
-local KeyNotifications = Configs.Key.Notifi.Notifications or true
-local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or "A key está incorreta. Tente novamente."
-local KeySuccess = Configs.Key.Notifi.CorrectKey or {
-    Title = "Key Correta!",  -- Título da notificação de sucesso
-    Text = "Você colocou a key certa",  -- Texto da notificação de sucesso
-    Time = 5  -- Duração da notificação
-}
-local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Link Copiado Automaticamente."
-
+    
 -- Exemplo de uso:
 MakeNotifi(KeySuccess)ed = true,
       TextColor3 = Color3.fromRGB(240, 0, 0),
@@ -244,7 +225,26 @@ MakeNotifi(KeySuccess)ed = true,
     local Description = Create("TextLabel", KeyMenu, {
       Size = UDim2.new(1, -80, 0, 0),
       Text = KeyDescription,
-      TextSize = 17,
+      Tlocal KeySystem = Configs.Key.KeySystem or false
+local KeyTitle = Configs.Key.Title or "Hub Key System"
+local KeyDescription = Configs.Key.Description or "Leaks/Scripts Hub"
+local KeyKey = Configs.Key.Keys or {"123", "321"}
+local KeyLink = Configs.Key.KeyLink or ""
+local KeyNotifications = Configs.Key.Notifi.Notifications or true
+local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or {
+    Title = "Key Incorreta!!",  -- Título da notificação de erro
+    Text = "Você colocou a key errada!",  -- Texto da notificação de erro
+    Time = 5  -- Duração da notificação
+}
+local KeySuccess = Configs.Key.Notifi.CorrectKey or {
+    Title = "Key Correta!",  
+    Text = "Você colocou a key certa",  
+    Time = 5  
+}
+local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Link Copiado Automaticamente."
+
+-- Exemplo de uso:
+MakeNotifi(KeyNotSuccess)extSize = 17,
       TextColor3 = Configs_HUB.Cor_DarkText,
       Font = Configs_HUB.Text_Font,
       Position = UDim2.new(0, 20, 0, 25),
