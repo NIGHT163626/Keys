@@ -222,26 +222,49 @@ MakeNotifi(KeySuccess)ed = true,
       BackgroundTransparency = 1
     })
     
-    local Description = Create("TextLabel", KeyMenu, {
-      Size = UDim2.new(1, -80, 0, 0),
-      Text = KeyDescription,
-      Tlocal KeySystem = Configs.Key.KeySystem or false
+    -- Configurações de Key do sistema
+local KeySystem = Configs.Key.KeySystem or false
 local KeyTitle = Configs.Key.Title or "Hub Key System"
 local KeyDescription = Configs.Key.Description or "Leaks/Scripts Hub"
 local KeyKey = Configs.Key.Keys or {"123", "321"}
 local KeyLink = Configs.Key.KeyLink or ""
 local KeyNotifications = Configs.Key.Notifi.Notifications or true
+
+-- Notificação para Key incorreta
 local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or {
     Title = "Key Incorreta!!",  -- Título da notificação de erro
     Text = "Você colocou a key errada!",  -- Texto da notificação de erro
     Time = 5  -- Duração da notificação
 }
+
+-- Notificação para Key correta
 local KeySuccess = Configs.Key.Notifi.CorrectKey or {
-    Title = "Key Correta!",  
-    Text = "Você colocou a key certa",  
-    Time = 5  
+    Title = "Key Correta!",  -- Título da notificação de sucesso
+    Text = "Você colocou a key certa",  -- Texto da notificação de sucesso
+    Time = 5  -- Duração da notificação
 }
+
+-- Notificação ao copiar link da key
 local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Link Copiado Automaticamente."
+
+-- Função para validar a key
+local function ValidateKey(inputKey)
+    local validKeys = KeyKey or {"123", "321"}  -- Lista de keys válidas
+
+    for _, validKey in ipairs(validKeys) do
+        if inputKey == validKey then
+            MakeNotifi(KeySuccess)  -- Exibir notificação de sucesso
+            return true
+        end
+    end
+    
+    MakeNotifi(KeyNotSuccess)  -- Exibir notificação de erro
+    return false
+end
+
+-- Exemplo de uso ao validar uma key
+local inputKey = "123"  -- Key inserida pelo usuário
+ValidateKey(inputKey)  -- Chama a função de validação da key
 
 -- Exemplo de uso:
 MakeNotifi(KeyNotSuccess)extSize = 17,
