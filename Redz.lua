@@ -193,14 +193,14 @@ function MakeWindow(Configs)
   local Anim_Title = Configs.Hub.Animation or "by : redz9999"
   
   local KeySystem = Configs.Key.KeySystem or false
-  local KeyTitle = Configs.Key.Title or "Key System"
-  local KeyDescription = Configs.Key.Description or ".-."
+  local KeyTitle = Configs.Key.Title or "Hub Key System"
+  local KeyDescription = Configs.Key.Description or "Leaks/Scripts Hub"
   local KeyKey = Configs.Key.Keys or {"123", "321"}
   local KeyLink = Configs.Key.KeyLink or ""
   local KeyNotifications = Configs.Key.Notifi.Notifications or true
-  local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or "The key is incorrect"
-  local KeySuccess = Configs.Key.Notifi.CorrectKey or "Running the Script..."
-  local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Copied to Clipboard"
+  local KeyNotSuccess = Configs.Key.Notifi.Incorrectkey or "Key Correta!"
+  local KeySuccess = Configs.Key.Notifi.CorrectKey or "Excutando o Script..."
+  local KeyCopyKeyLink = Configs.Key.Notifi.CopyKeyLink or "Link Copiado Automaticamente."
   
   if KeySystem then
     local KeyMenu = Create("Frame", ScreenGui, {
